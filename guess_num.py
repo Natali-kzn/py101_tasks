@@ -16,3 +16,25 @@
 
 if __name__ == '__main__':
     pass
+
+import random
+start_over = 1 # нужно для возможности окончания цикла while
+print("Загадано число от 1 до 1000000. Угадай его. ")
+number = random.randint(1,1000000) # сгенерировали число
+while start_over == 1:
+    guess = input("Введите, пожалуйста, число. ")
+    if guess.isdigit() == True: # проверка, что введено число
+        guess = int(guess)
+        while guess != number:
+            if guess < 0 or guess > 1000000:
+                print('Число не входит в диапазон от 0 до 1 000 000.')
+                guess = int(input("Пожалуйста, введите число заново. "))
+            if guess < number:
+                print("Введенное число меньше загаданного. ")
+            else:
+                print("Введенное число больше загаданного. ")
+            guess = int(input('Введите число снова '))     
+        print("Ты угадал. Было загадано число ", number) 
+        start_over = 0
+    else:
+        print('Вы ввели не число. Пожалуйста, введите число')

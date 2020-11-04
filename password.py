@@ -8,3 +8,10 @@
 
 if __name__ == '__main__':
     pass
+
+import re
+password = input('введите пароль: ')
+if len(password) >= 8 and (re.search(r'[A-Za-z]', password)) and re.search(r'[0-9]', password) :
+    print('Пароль надежный')
+else:
+    print('Пароль ненадежный')    
