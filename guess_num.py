@@ -18,23 +18,23 @@ if __name__ == '__main__':
     pass
 
 import random
+
 print("Загадано число от 1 до 1000000. Угадай его. ")
-number = random.randint(0,10) # сгенерировали число
+number = random.randint(0, 10)  # сгенерировали число
+print("Попробуйте угадать число от 0 до 1000000. Для выхода из программы нажмите Enter или наберите exit.")
 guess = input("Введите, пожалуйста, число. ")
-while guess != number:
-    if (guess == '') or (guess == 'exit')):
-        print('До свидания!')
-        break
-    if guess.isdigit() != True: # проверка, что введено число
-        print('Вы ввели не число. Пожалуйста, введите число')
-    else:
+while not ((guess == '') or (guess == 'exit')):
+    try:
         guess = int(guess)
         if guess < 0 or guess > 10:
-            print('Число не входит в диапазон от 0 до 1 000 000.')
-        elif guess == number:
-            print("Ты угадал. Было загадано число ", number)
+            print('Число не входит в диапазон от 0 до 1 000 000. Введите число еще раз.')
         elif guess > number:
-            print("Введенное число меньше загаданного. ")
-        elif guess < number:
             print("Введенное число больше загаданного. ")
+        elif guess < number:
+            print("Введенное число меньше загаданного. ")
+        else:
+            print("Ты угадал. Было загадано число ", number)
+            break
+    except ValueError:
+        print('Вы ввели не число.')
     guess = input("Введите, пожалуйста, число. ")
