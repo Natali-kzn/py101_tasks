@@ -42,10 +42,11 @@ from nltk.corpus import stopwords
 russian_stopwords = stopwords.words("russian")
 english_stopwords = stopwords.words("english")
 
-text_without_stop_words = []
+def delete_stop_words(text):
+    text_without_stop_words = []
     for word in text:
         if word not in russian_stopwords or english_stopwords:
-            text_without_stop_words.append(word)
+           text_without_stop_words.append(word)
     return text_without_stop_words
 
 # считаем частоту слов в тексте
