@@ -12,11 +12,9 @@ f = open('text.txt', "r", encoding="utf-8")
 text = f.read()
 text = text.lower()
 f.close
-# print(text)
 
 # в модуле string содержится стандартный набор символов пунктуации
 import string
-# print(string.punctuation)
 text = text.replace('\n', ' ')
 spec_chars = string.punctuation + '\xa0«»\t—…'
 
@@ -25,9 +23,7 @@ def remove_chars_from_text(text, chars):
     return "".join([ch for ch in text if ch not in chars])
 
 text = remove_chars_from_text(text, spec_chars)
-# print(text)
 text = remove_chars_from_text(text, string.digits)
-# print(text)
 
 # разбиваем текст на токены (слова)
 from nltk import word_tokenize
@@ -35,7 +31,6 @@ text_tokens = word_tokenize(text)
 
 import nltk
 text = nltk.Text(text_tokens)
-# print(text)
 
 # удалим стоп-слова
 from nltk.corpus import stopwords
